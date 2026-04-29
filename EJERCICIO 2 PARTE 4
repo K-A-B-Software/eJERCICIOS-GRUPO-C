@@ -1,0 +1,55 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream archivo("notas.txt");
+
+    // Manejo de error si el archivo no existe
+    if (!archivo.is_open()) {
+        cout << "Error: no se pudo abrir el archivo notas.txt" << endl;
+        return 1;
+    }
+
+    string nombre;
+    float n1, n2, n3, promedio;
+
+    int totalEstudiantes = 0;
+    int aprobados = 0;
+    float sumaPromedios = 0;
+
+    while (archivo >> nombre >> n1 >> n2 >> n3) {
+        promedio = (n1 + n2 + n3) / 3;
+
+        cout << "Nombre: " << nombre << endl;
+        cout << "Promedio: " << promedio << endl;
+
+        if (promedio >= 7) {
+            cout << "Estado: Aprobado" << endl;
+            aprobados++;
+        } else {
+            cout << "Estado: Reprobado" << endl;
+        }
+
+        cout << "----------------------" << endl;
+
+        totalEstudiantes++;
+        sumaPromedios += promedio;
+    }
+
+    archivo.close();
+
+    // Calcular promedio general
+    if (totalEstudiantes > 0) {
+        float promedioGeneral = sumaPromedios / totalEstudiantes;
+
+        cout << "\nResumen:" << endl;
+        cout << "Total de estudiantes: " << totalEstudiantes << endl;
+        cout << "Total de aprobados: " << aprobados << endl;
+        cout << "Promedio general: " << promedioGeneral << endl;
+    } else {
+        cout << "El archivo esta vacio o mal formado." << endl;
+    }
+
+    return 0;
+}
