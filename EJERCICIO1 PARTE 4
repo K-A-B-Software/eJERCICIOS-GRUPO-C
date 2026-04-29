@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream archivo("notas.txt");
+
+    if (!archivo.is_open()) {
+        cout << "Error al abrir el archivo" << endl;
+        return 1;
+    }
+
+    string nombre;
+    float n1, n2, n3, promedio;
+
+    while (archivo >> nombre >> n1 >> n2 >> n3) {
+        promedio = (n1 + n2 + n3) / 3;
+
+        cout << "Nombre: " << nombre << endl;
+        cout << "Promedio: " << promedio << endl;
+
+        if (promedio >= 7) {
+            cout << "Estado: Aprobado" << endl;
+        } else {
+            cout << "Estado: Reprobado" << endl;
+        }
+
+        cout << "----------------------" << endl;
+    }
+
+    archivo.close();
+    return 0;
+}
