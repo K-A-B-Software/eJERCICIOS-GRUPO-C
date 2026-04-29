@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Notas de los estudiantes
+    float estudiante1[3] = {8, 7, 9};
+    float estudiante2[3] = {5, 6, 4};
+    float estudiante3[3] = {10, 9, 10};
+
+    float promedio;
+    int aprobados = 0;
+
+    // Estudiante 1
+    promedio = (estudiante1[0] + estudiante1[1] + estudiante1[2]) / 3;
+    cout << "Estudiante 1 - Promedio: " << promedio;
+
+    if (promedio >= 7) {
+        cout << " -> Aprobado" << endl;
+        aprobados++;
+    } else {
+        cout << " -> Reprobado" << endl;
+    }
+
+    // Estudiante 2
+    promedio = (estudiante2[0] + estudiante2[1] + estudiante2[2]) / 3;
+    cout << "Estudiante 2 - Promedio: " << promedio;
+
+    if (promedio >= 7) {
+        cout << " -> Aprobado" << endl;
+        aprobados++;
+    } else {
+        cout << " -> Reprobado" << endl;
+    }
+
+    // Estudiante 3
+    promedio = (estudiante3[0] + estudiante3[1] + estudiante3[2]) / 3;
+    cout << "Estudiante 3 - Promedio: " << promedio;
+
+    if (promedio >= 7) {
+        cout << " -> Aprobado" << endl;
+        aprobados++;
+    } else {
+        cout << " -> Reprobado" << endl;
+    }
+
+    // Total de aprobados
+    cout << "\nTotal de estudiantes aprobados: " << aprobados << endl;
+
+    return 0;
+}
